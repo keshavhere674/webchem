@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemTrack</title>
+    <link rel="stylesheet" href="guest.css">
+    <style>
+        /* Additional CSS for responsiveness */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #cfcaca;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 2px solid #ecf0f1;
+        }
+        .sidebar .menu {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+        .sidebar .menu ul {
+            padding: 0;
+            width: 100%;
+        }
+        .sidebar .menu li {
+            margin: 15px 0;
+            text-align: center;
+        }
+        .sidebar .menu a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            padding: 10px;
+        }
+        .sidebar .menu a:hover {
+            background-color: #34495e;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        header .gradient-text {
+            background: linear-gradient(gold, rgb(240, 161, 240));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            font-size: 28px;
+        }
+        .search-export {
+            display: flex;
+            align-items: center;
+        }
+        .search-export input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        .search-export .export-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2ae649;
+            color: #2c3e50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .search-export .export-btn:hover {
+            background-color: #27ae60;
+        }
+        .chemicals {
+            margin-top: 20px;
+        }
+        .chemical-sections {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .chemical-section {
+            flex: 1 1 calc(50% - 20px);
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .chemical-section h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            text-align: center;
+        }
+        .chemicals-table {
+            overflow-x: auto;
+        }
+        .chemicals-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            table-layout: fixed;
+        }
+        .chemicals-table th, .chemicals-table td {
+            padding: 8px 10px;
+            text-align: left;
+            white-space: nowrap;
+        }
+        .chemicals-table th {
+            background-color: #3498db;
+            color: white;
+            text-transform: uppercase;
+        }
+        .chemicals-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .chemicals-table tr:hover {
+            background-color: #ddd;
+        }
+        .chemicals-table td {
+            border-bottom: 1px solid #ddd;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile">
+                <img src="C:/Users/Sudanshu/Downloads/myclg.jpeg" alt="Profile Icon">
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#settings">Settings</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="loginpage.html">Log Out</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="main-content">
+            <header>
+                <h1 class="gradient-text">Work with ChemTrack</h1>
+                <div class="search-export">
+                    <input type="text" placeholder="Search...">
+                    <button class="export-btn">Export to Excel</button>
+                </div>
+            </header>
+            <section class="chemicals">
+                <h2>Chemicals</h2>
+                <div class="chemical-sections">
+                    <div class="chemical-section">
+                        <h3>Section 1</h3>
+                        <div class="chemicals-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Chemical</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Chemical 1</td>
+                                        <td>1 unit</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chemical 2</td>
+                                        <td>2 unit</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chemical 3</td>
+                                        <td>1 unit</td>
+                                    </tr>b
+                                    <tr>
+                                        <td>Chemical 4</td>
+                                        <td>5 unit</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chemical 5</td>
+                                        <td>2 unit</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chemical 6</td>
+                                        <td>3 unit</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="chemical-section">
+                        <h3>Section 2</h3>
+                        <div class="chemicals-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Chemical</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Chemical 7</td>
+                                        <td>5 unit</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chemical 8</td>
+                                        <td>4 unit</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chemical 9</td>
+                                        <td>3 unit</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chemical 10</td>
+                                        <td>4 unit</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chemical 11</td>
+                                        <td>5 unit</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chemical 12</td>
+                                        <td>6 unit</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
+

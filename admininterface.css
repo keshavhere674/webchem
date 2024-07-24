@@ -1,0 +1,339 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f9;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+}
+
+.sidebar .profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 2px solid #ecf0f1;
+}
+
+.sidebar .menu {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar .menu ul {
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar .menu li {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.sidebar .menu a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+}
+
+.sidebar .menu a:hover {
+    background-color: #34495e;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right .search-bar {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.header-right .export-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2ae649;
+    color: #2c3e50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 20px;
+}
+
+.header-right .export-btn:hover {
+    background-color: #27ae60;
+}
+
+.header-right .logo {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.chemical-section {
+    flex: 1 1 45%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.chemical-section h2 {
+    margin-top: 0;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.chemicals-table {
+    overflow-x: auto;
+}
+
+.chemicals-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    table-layout: fixed;
+}
+
+.chemicals-table th,
+.chemicals-table td {
+    padding: 8px 10px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.chemicals-table th {
+    background-color: #3498db;
+    color: white;
+    text-transform: uppercase;
+}
+
+.chemicals-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.chemicals-table tr:hover {
+    background-color: #ddd;
+}
+
+.chemicals-table td {
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+button.edit-btn,
+button.update-btn,
+button.delete-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button.edit-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+button.edit-btn:hover {
+    background-color: #2980b9;
+}
+
+button.update-btn {
+    background-color: #2ecc71;
+    color: white;
+}
+
+button.update-btn:hover {
+    background-color: #27ae60;
+}
+
+button.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+button.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .header-right .search-bar {
+        width: 150px;
+    }
+
+    .header-right .logo {
+        width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    .sidebar .profile img {
+        width: 50px;
+    }
+
+    .sidebar .menu ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebar .menu ul li {
+        margin: 10px;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-right {
+        margin-top: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-right .search-bar,
+    .header-right .export-btn {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .chemical-section {
+        padding: 10px;
+        flex: 1 1 100%; /* Full width for sections */
+    }
+
+    .chemical-section h2 {
+        font-size: 18px;
+    }
+
+    .chemicals-table th,
+    .chemicals-table td {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 18px;
+    }
+
+    .header-right .search-bar {
+        width: 100px;
+    }
+
+    .header-right .export-btn {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    .header-right .logo {
+        width: 100px;
+    }
+
+    .chemical-section {
+        padding: 5px;
+    }
+
+    .chemicals-table th,
+    .chemicals-table td {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    button.edit-btn,
+    button.update-btn,
+    button.delete-btn {
+        padding: 5px;
+        font-size: 12px;
+    }
+}
